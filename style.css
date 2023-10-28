@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-image: url(/./img/pexels-moose-photos-1037992.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 4rem;
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+}
+
+h1 {
+    color: white;
+    font-size: 1.5rem;
+}
+
+nav {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.navlinks {
+    display: flex;
+    gap: 5rem;
+}
+
+.navlinks li {
+    list-style: none;
+}
+
+.navlinks li a:not(.active) {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+    transition: all .3s ease-in-out;
+}
+
+.active {
+    font-size: 1.3rem;
+    color: blue;
+    border-bottom: 1px solid blue;
+    text-decoration: none;
+}
+
+.navlinks li a:not(.active):hover {
+    color: blue;
+    border-bottom: 1px solid blue;
+}
+
+.fa-bars {
+    font-size: 1.8rem;
+    color: white;
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+@media (max-width: 568px) {
+    header {
+        padding-inline: 1.2rem;
+    }
+    .navlinks {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+        background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+        position: fixed;
+        right: 0;
+        top: 37px;
+        width: 100%;
+        padding-block: 1.5rem;
+        padding-inline-start: 1.5rem;
+        transform: translateY(-15px);
+        transition: all .3s ease-in;
+        opacity: 0;
+    }
+    .navlinks li a {
+        text-transform: uppercase;
+    }
+    .navlinks li a:not(.active) {
+        font-size: 1rem;
+    }
+    .active {
+        color: white;
+        font-size: 1rem;
+        border: none;
+    }
+    .fa-bars {
+        display: block;
+    }
+    #check:checked~.navlinks {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
